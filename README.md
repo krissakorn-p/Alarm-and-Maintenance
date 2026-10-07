@@ -1,13 +1,13 @@
 # Alarm & Maintenance Management System
 เว็บแอปจัดการเครื่องจักร, Alarm และงานซ่อมบำรุงในโรงงาน (วิชา Programming in Automation Systems)
 
-**Vercel URL:** _(ใส่ URL หลัง deploy)_
+**Vercel URL:** (https://alarm-and-maintenance.vercel.app/)
 
 ## Functions
 Login/Logout (Supabase Auth) · Role Admin/Technician (RLS) · Machine CRUD · Alarm Create/Read/Update · Maintenance Create/Read/Update · Search/Filter · Dashboard · Input Validation
 
 ## Tech
-Next.js 14 · Tailwind CSS · Supabase · GitHub Actions (CI) · Vercel
+Next.js 16 · Tailwind CSS · Supabase · GitHub Actions (CI) · Vercel
 
 ## Database
 `profiles(id→auth.users, full_name, role)` · `machines(machine_id unique, name, type, location, status)` ·
