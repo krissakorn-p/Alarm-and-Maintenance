@@ -1,0 +1,10 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { validateMachine, validateAlarm, validateMaintenance } from "../lib/validate.mjs";
+const ok = { machine_id: "M-01", name: "Pump", type: "Pump", location: "Line1", status: "Running" };
+test("machine ok", () => assert.deepEqual(validateMachine(ok), {}));
+test("machine blank", () => assert.ok(validateMachine({ ...ok, name: " " }).name));
+test("machine duplicate", () => assert.ok(validateMachine(ok, ["m-01"]).machine_id));
+test("machine bad id", () => assert.ok(validateMachine({ ...ok, machine_id: "a b!" }).machine_id));
+test("alarm needs code", () => assert.ok(validateAlarm({ machine_id: "x", alarm_code: "", description: "d", occurred_at: "2026-01-01" }).alarm_code));
+test("maintenance bad date", () => assert.ok(validateMaintenance({ machine_id: "x", description: "d", performed_at: "zz" }).performed_at));
